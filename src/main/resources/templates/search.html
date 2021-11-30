@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .search{
+            width: 100%;
+            height: 300px;
+            padding: 100px 100px; 
+            background: url('../../../../../../Desktop/New folder (5)/backup nupur/nupurbooks/bg_breath_of_the_wild.jpg');
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: 100%;
+            position: absolute;
+            top: -300px;
+            transition: 1.5s;
+            
+            
+        }
+        .search >form> input{
+            height: 90px;
+            width:90%;
+            font-size: 3em;
+            
+        }
+        .search >form> i{
+            color: #fff;
+            width: 2%;
+            font-size: 3em;
+            margin: 23px;
+            
+        }
+        input[type=text]:focus {
+         border: 3px solid #555;
+        }
+        .ver{
+            position: absolute;
+        }
+
+
+    </style>
+    <!-- search bar  -->
+    <div class="search" id="searchbar">
+        <form>
+            <input type="text" id="search" name="search" > 
+            <i class="fas fa-times" id="close" onclick="hidesearch()"></i>
+        </form>
+    </div>    
+     <!--end search bar   -->
+
+    <div class="ver" id='search'  onclick="displaysearch()">search</div>
+
+    <script>
+        function displaysearch(){
+            document.getElementById("searchbar").style.top = "0px";     
+        }
+        function hidesearch(){
+            document.getElementById("searchbar").style.top = "-300px";     
+        }
+   </script>
+
+
+</body>
+</html>

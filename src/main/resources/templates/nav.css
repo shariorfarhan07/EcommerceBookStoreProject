@@ -1,0 +1,303 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box !important;
+}
+
+.headercontainer {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.header {
+    position: relative !important;
+    width: 100%;
+    box-shadow: 1px 1px 6px 0px rgb(0 0 0 / 13%);
+    background-color: #fafafa;
+}
+
+nav {
+    display: flex !important;
+}
+
+.left {
+    position: relative;
+    left: 0;
+}
+
+.logo {
+    position: relative;
+
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+
+}
+
+.nav {
+    margin: auto 0;
+}
+
+.logo h1 {
+    margin: auto o;
+    color: #222;
+    font-weight: 900;
+    line-height: 1.4;
+    font-size: 2em;
+    padding: 25px;
+    font-family: 'Cinzel Decorative', cursive;
+
+}
+
+.right {
+    position: relative;
+    right: 0;
+}
+
+nav>div>ul>li {
+    display: inline-block;
+    padding: 15px 15px;
+    list-style: none;
+    position: relative;
+
+}
+
+nav>div>ul>li>a {
+
+    text-decoration: none;
+    align-content: center;
+    padding: 20px 15px;
+    font-family: 'Mulish', sans-serif;
+    font-size: 1.2em;
+    color: #222;
+
+}
+
+nav>div>ul>li>a:hover {
+    text-decoration: none;
+    color: #FAAB9F;
+
+}
+
+
+body {
+    font-family: 'Mulish', sans-serif;
+    font-size: 18px;
+}
+
+
+::selection {
+    color: #ffffff;
+    /* Code for Firefox */
+    background: #FAAB9F;
+}
+
+::-moz-selection {
+    color: #ffffff;
+    background: #FAAB9F;
+}
+
+
+
+
+
+
+/* footer */
+
+.footer {
+    display: block;
+    background-color: #282828;
+    color: #ffff;
+    padding: 20px;
+}
+
+.footer iframe {
+    padding-top: 22px;
+    max-width: 250px;
+    max-height: 250px;
+}
+
+.footer h2 {
+    font-family: 'Cinzel Decorative', cursive;
+
+}
+
+.fb {
+    font-size: 70px;
+}
+
+
+/* first letter box */
+.firstl::first-letter {
+    font-size: 2em;
+    color: #FAAB9F;
+    border: 2px solid#FAAB9F;
+    padding: 0 5px;
+    z-index: -1;
+    display: block;
+}
+
+.menu {
+    width: 10%;
+    display: none;
+}
+
+
+@media (max-width:1803px) {
+    .header {
+        font-size: 15px;
+
+    }
+}
+
+@media (max-width:1575px) {
+    .header {
+        font-size: 10px;
+    }
+}
+
+
+
+@media (max-width:1245px) {
+    .header {
+        font-size: 12px;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .logo {
+        left: 0;
+    }
+
+    .menu {
+        display: block;
+        position: relative;
+        margin: 0 auto;
+        font-size: 3.3em;
+        padding-top: 50px;
+    }
+
+}
+
+.category::after {
+    content: '';
+    position: absolute;
+    width: 25px;
+    height: 25px;
+    border-bottom: 2px solid #FAAB9F;
+    border-right: 2px solid #FAAB9F;
+    transform: rotate(45deg);
+    top: 59%;
+    left: 42%;
+    z-index: 2;
+}
+
+.categorytag {
+    position: relative;
+}
+
+
+.categorybig {
+    position: absolute;
+    z-index: 2;
+    width: 90vw;
+    display: none;
+
+    height: 100vh;
+    padding: 50px 50px;
+    /* glassmorphisom */
+    background: rgba(136, 51, 38, 0.2);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    backdrop-filter: blur(10.0px);
+    -webkit-backdrop-filter: blur(10.0px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+
+}
+
+.categorytag:hover .categorybig {
+    display: block;
+}
+
+
+.bigcategory>div>div {
+    padding-bottom: 10px;
+    font-family: 'Cinzel Decorative', cursive;
+
+
+}
+
+.bigcategory>div>div>a {
+    color: #222;
+}
+
+.bigcategory>div>ul>li>a {
+    color: #222;
+}
+
+.bigcategory>div>ul>li {
+    list-style-type: disc;
+
+}
+
+.bigcategory>div>ul {
+    padding-left: 20px;
+}
+
+.categorytag a {
+    color: #222;
+
+}
+
+.eng {
+    width: 120%;
+    height: auto;
+
+}
+
+.eng>div {
+    padding-bottom: 15px;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.search {
+    width: 100%;
+    height: 230px;
+    padding: 65px 100px;
+    background: url('../../../../../../Desktop/New folder (5)/backup nupur/nupurbooks/bg_breath_of_the_wild.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: -300px;
+    transition: 1.5s;
+    z-index: 1;
+
+
+}
+
+.search>form>input {
+    height: 90px;
+    width: 90%;
+    font-size: 3em;
+
+}
+
+.search>form>i {
+    color: #fff;
+    width: 2%;
+    font-size: 3em;
+    margin: 23px;
+
+}
+
+input[type=text]:focus {
+    border: 3px solid #555;
+}
+
+.ver {
+    position: absolute;
+}
