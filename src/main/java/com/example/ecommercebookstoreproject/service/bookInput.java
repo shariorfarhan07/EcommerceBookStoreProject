@@ -1,5 +1,7 @@
 package com.example.ecommercebookstoreproject.service;
 
+import com.example.ecommercebookstoreproject.model.Book;
+
 import java.util.Arrays;
 
 public class bookInput {
@@ -11,6 +13,7 @@ public class bookInput {
     private String category[];
     private int quantity;
     private String Date;
+    private  double price;
 
     @Override
     public String toString() {
@@ -69,6 +72,13 @@ public class bookInput {
     public String[] getCategory() {
         return category;
     }
+    public String getCategorytoString() {
+        String s="";
+        for (int i = 0; i < category.length; i++) {
+            s+=" "+category[i];
+        }
+        return s;
+    }
 
     public void setCategory(String[] category) {
         this.category = category;
@@ -89,4 +99,28 @@ public class bookInput {
     public void setDate(String date) {
         Date = date;
     }
+
+    public Book Createbook(){
+        Book book=new Book();
+        book.setCategory(getCategorytoString());
+        book.setAuthor(author);
+        book.setDescription(description);
+        book.setName(name);
+        book.setPrice(price);
+        book.setQuantity(quantity);
+        book.setPublisher(publisher);
+
+
+
+        book.setImage("Image name");
+
+
+
+
+
+        return  book;
+    }
+
+
+
 }

@@ -12,15 +12,6 @@ public class Comments {
     private String email;
     private String comment;
     private String Date;
-
-    public String getDate() {
-        return Date;
-    }
-
-    public void setDate(String date) {
-        Date = date;
-    }
-
     @Override
     public String toString() {
         return "Comments{" +
@@ -30,6 +21,13 @@ public class Comments {
                 ", comment='" + comment + '\'' +
 
                 '}';
+    }
+
+    public String getDate() {
+        return Date;
+    }
+    public void setDate(String date) {
+        Date = date;
     }
 
     public int getId() {

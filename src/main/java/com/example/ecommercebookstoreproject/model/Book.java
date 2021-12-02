@@ -17,6 +17,38 @@ public class Book {
     private String category;
     private int quantity;
     private String Date;
+    private  double price;
+
+    @ManyToOne
+    private Category categoryy;
+    @OneToMany
+    private List<Comments> comments=new ArrayList<>();
+
+    private String image;
+
+    @Override
+    public String toString() {
+        return "Book{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", author='" + author + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", category='" + category + '\'' +
+                ", quantity=" + quantity +
+                ", Date='" + Date + '\'' +
+                ", price=" + price +
+
+                ", categoryy=" + categoryy +
+                ", comments=" + comments +
+                ", image='" + image + '\'' +
+                ", price='" + price + '\'' +
+                '}';
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
 
 
 
@@ -52,13 +84,6 @@ public class Book {
         this.comments = comments;
     }
 
-    @ManyToOne
-    private Category categoryy;
-    @OneToMany
-    private List<Comments> comments=new ArrayList<>();
-
-    private String image;
-    private String price;
 
     public String getCategory() {
         return category;
@@ -116,26 +141,11 @@ public class Book {
         this.image = image;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
-        this.price = price;
-    }
 
-    @Override
-    public String toString() {
-        return "Book{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", description='" + description + '\'' +
-                ", author='" + author + '\'' +
-                ", publisher='" + publisher + '\'' +
-                ", image='" + image + '\'' +
-                ", price='" + price + '\'' +
-                '}';
-    }
 
 
 }

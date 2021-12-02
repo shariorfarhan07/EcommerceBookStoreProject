@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
+//id	first_name	last_name	phone	address	flat	division	city	zip	payment	email	paymentmethod	paymentnumber	txid	submit	created_at	updated_at
 
     @Entity
     public class Orders {
@@ -21,7 +21,32 @@ import javax.persistence.Id;
         private String submit;
         private String date;
         private String status;
+        private String division;
+        private String city;
+        private String zip;
         private double price;
+
+        public Orders() {
+
+        }
+
+        public Orders(int id, String first_name, String last_name, String phone, String address, String payment, String paymentmethod, String txid, String submit, String date, String status, String division, String city, String zip, double price) {
+            this.id = id;
+            this.first_name = first_name;
+            this.last_name = last_name;
+            this.phone = phone;
+            this.address = address;
+            this.payment = payment;
+            this.paymentmethod = paymentmethod;
+            this.txid = txid;
+            this.submit = submit;
+            this.date = date;
+            this.status = status;
+            this.division = division;
+            this.city = city;
+            this.zip = zip;
+            this.price = price;
+        }
 
         @Override
         public String toString() {
@@ -39,6 +64,30 @@ import javax.persistence.Id;
                     ", status='" + status + '\'' +
                     ", price=" + price +
                     '}';
+        }
+
+        public String getDivision() {
+            return division;
+        }
+
+        public void setDivision(String division) {
+            this.division = division;
+        }
+
+        public String getCity() {
+            return city;
+        }
+
+        public void setCity(String city) {
+            this.city = city;
+        }
+
+        public String getZip() {
+            return zip;
+        }
+
+        public void setZip(String zip) {
+            this.zip = zip;
         }
 
         public int getId() {
