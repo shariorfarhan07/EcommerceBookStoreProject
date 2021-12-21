@@ -17,6 +17,15 @@ public class cart {
 
     private  cart(){}
 
+    @Override
+    public String toString() {
+        return "cart{" +
+                "items=" + items +
+                ", totalQuantity=" + totalQuantity +
+                ", price=" + price +
+                '}';
+    }
+
     public cart(cart preCart){
         if (preCart !=null){
             totalQuantity=preCart.totalQuantity;
@@ -27,6 +36,7 @@ public class cart {
             price=0;
             items=new HashMap<Integer, Object[]>();
         }
+        System.out.println(this);
     }
 
     private Object[] value(int qty,double price,Book book ){
@@ -36,15 +46,15 @@ public class cart {
 
 
 
-    public Boolean addItem(int id,int qty,double price,Book book ){
+    public Boolean addItem(int id,int qty,Book book ){
 
         if (items.containsKey(id)){
             Object data[]=items.get(id);
             data[0]=(int)data[0]+qty;
-            data[1]=(double)data[1]+book.getPrice();
+            data[1]=(double)data[1]+book.getPrice()*qty;
 
         }else {
-            Object data[]=value(qty,price,book);
+            Object data[]=value(qty,book.getPrice(),book);
             items.put(id,data);
             totalQuantity+=(int)data[0];
             this.price+=(double) data[1];

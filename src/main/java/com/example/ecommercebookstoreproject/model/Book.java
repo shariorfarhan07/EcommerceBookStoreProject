@@ -18,6 +18,10 @@ public class Book {
     private int quantity;
     private String Date;
     private  double price;
+    private  String slug;
+    private  String updated_at;
+    private  String created_at;
+
 
     @ManyToOne
     private Category categoryy;

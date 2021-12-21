@@ -1,0 +1,97 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="frontend/app::layoutt(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+
+    @extends('main.app')
+
+    @push('css')
+    <link rel="stylesheet" href="{{asset('main/cart.css')}}" />
+    <style>
+        td>a{
+            color: #444444;
+        }
+        td>a:hover{
+            color: #FAAB9F;
+            text-decoration: none;
+        }
+    </style>
+    @endpush
+    @section('content')
+    <!-- start title -->
+    <div class="title">
+        <h1 class="firstl">Cart</h1>
+    </div>
+    <!-- end title -->
+
+
+
+    <section class="container" style="height: auto; padding:10% 0%">
+        <table class="table">
+            <thead style="background-color: #FAAB9F;">
+            <tr>
+                <th class="product-thumbnail">Image</th>
+                <th class="product-name">Books</th>
+                <th class="product-price">Price</th>
+                <th class="product-quantity">Quantity</th>
+                <th class="product-subtotal">Total</th>
+                <th class="product-remove">Remove</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach($cartItems-> items as $item)
+
+            <tr>
+                <td class="product-thumbnail"><a href="#"><img src="{{Storage::disk('local')->url('product_images/'.$item['data']['image'])  }}" alt="product img"  style="width: 100px"/></a></td>
+                <td class="product-name"><a href="#">{{$item['data']['name']}}</a></td>
+                <td class="product-price" ><span class="amount">৳{{$item['price']}}</span></td>
+                <td class="product-quantity"style="font-size:25px;"><a href="product/{{$item['data']['id']}}/{{$item['quantity']-1}}">- </a>{{$item['quantity']}}<a href="product/{{$item['data']['id']}}/{{$item['quantity']+1}}"> +</a></td>
+                <td class="product-subtotal">৳{{$item['price']*$item['quantity']}}</td>
+                <td class="product-remove"><a href="product/{{$item['data']['id']}}/0">X</a></td>
+            </tr>
+
+            @endforeach
+            </tbody>
+
+        </table>
+        <br>
+        <br>
+        <br>
+        <h3>Total:৳{{ $cartItems->totalPrice  }} taka+Delivery charge will be added after your confirmation</h3>
+        <p>Delivery charge is based books weight our representative will call you to confirm delivery charge</p>
+        <a href="{{route('order')}}">Confirm order</a>
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @endsection
+
+
+
+</section>
+
+</body>
+</html>

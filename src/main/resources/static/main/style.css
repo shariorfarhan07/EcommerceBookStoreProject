@@ -1,0 +1,424 @@
+.pdf {
+    background-image: url('img/jkrow.jpg');
+    height: 600px;
+    width: 100%;
+    background-size: cover;
+    background-position-x: center;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+
+}
+
+.test {
+    height: 100vh;
+    width: 100%;
+    background-color: bisque;
+}
+
+bg-color {
+    background-color: #FAAB9F;
+}
+
+
+.ad {
+
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-image: url('img/nupur_books_home_page.jpg');
+    background-size: cover;
+    background-position-x: center;
+    background-position-y: 45%;
+    background-repeat: no-repeat;
+    overflow: hidden;
+    z-index: -1;
+
+}
+
+
+
+
+.firstadd {
+    display: block;
+    position: absolute;
+    max-height: 500px;
+    max-width: 666px;
+    top: 13%;
+    left: 50PX;
+    font-size: 2em;
+}
+
+.firstadd>h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1em;
+    padding-bottom: 35px;
+
+}
+
+
+
+.firstadd>p {
+    font-size: .8em;
+    color: #222;
+    opacity: 0.7;
+    padding: 12px 0;
+
+
+}
+
+.firstadd>a {
+    text-decoration: none;
+    text-align: center;
+    color: #FAAB9F;
+    border: 2px solid #FAAB9F;
+    padding: .2em;
+    margin: 2px;
+}
+
+.card>div>img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card>.img {
+    height: 22em;
+    overflow: hidden;
+    background-color: #F7F5F6;
+    padding: 10px;
+}
+
+.card {
+    max-width: 300px;
+    max-height: 600px;
+    padding: 5px;
+    background-color: #F7F5F6;
+    margin-bottom: 10px;
+
+}
+
+.price {
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+}
+
+.container-fluid {
+    margin: 100px 0;
+}
+
+
+
+
+.title>h1 {
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+}
+
+.title {
+    padding-top: 3em;
+    padding-bottom: 1em;
+    align-items: center;
+}
+
+.line {
+    width: 100%;
+    max-height: 50px;
+    text-align: center;
+    overflow: hidden;
+
+}
+
+
+
+
+
+.line>img {
+    position: absolute;
+    width: 350px;
+    height: 100px;
+    margin: 0 auto;
+
+}
+
+.title::after {
+    content: '';
+    display: inline-block;
+    background-image: url('img/line.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+
+}
+
+
+
+
+
+
+
+.curt>a:link {
+    text-decoration: none;
+}
+.cart:hover a{
+    color: #ffffff;
+}
+
+.cart>a {
+
+    position: relative;
+    top: 0px;
+    font-size: 1em;
+    color:#1a202c;
+    height: 1.2em;
+    width: .7em;
+    padding: 10px 10px;
+    text-decoration: none;
+    background-color: #282828;
+    left: 30px;
+}
+
+.curt>a:hover {
+    left: -20%;
+    text-decoration: none;
+    color: #FAAB9F;
+}
+
+
+
+
+
+
+
+
+.seemore>a>h2 {
+    font-size: 1em;
+    text-align: center;
+    color: #FAAB9F;
+}
+
+.seemore a {
+    padding: 1em;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 1em;
+}
+
+
+
+
+
+
+
+.seemore>a:hover {
+    color: #FAAB9F;
+    text-decoration: none;
+}
+
+
+
+.quote>h2 {
+    font-family: 'Cinzel Decorative', cursive;
+    color: black;
+    font-size: 2.2em;
+    padding: 10%;
+    font-weight: 900;
+    text-align: center;
+    text-shadow: #FAAB9F;
+
+}
+
+.pdf {
+    background-color: #ffff;
+    opacity: .9;
+}
+
+.pdfto {
+    /*background-image: url('img/pdftobooks.jpg');*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    overflow: hidden;
+    width: 100%;
+    height: 600px;
+    background-attachment: fixed;
+    padding: 10%;
+}
+
+.pdfto>div>h2 {
+    font-size: 4em;
+    text-align: center;
+    color: black;
+    font-family: 'Cinzel Decorative', cursive;
+
+}
+
+.pdfto>div>a {
+    position: relative;
+    font-family: 'Cinzel Decorative', cursive;
+    font-size: 2em;
+    color: #222;
+    padding: 5px;
+    border: 2px solid #FAAB9F;
+}
+
+.pdfto>div>a:hover {
+    color: #FAAB9F;
+    text-decoration: none;
+}
+
+.pdfto>div {
+    background-color: #F7F5F6;
+    border-radius: 10px;
+    padding: 2em;
+    align-items: center;
+    display: flex;
+    align-content: flex-start;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+
+.icon {
+    font-size: 4em;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.contact p {
+    text-align: center;
+
+}
+
+.contact {
+    padding: 10px;
+    background-color: #F7F5F6;
+}
+
+
+
+
+
+/* copied from shop grid */
+.card>div>a>img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card>.img {
+
+    overflow: hidden;
+    background-color: #F7F5F6;
+    padding: 10px;
+    /*image padding thik korle cart o thik korte hobe  */
+}
+
+.card {
+
+    /*max-height: 600px;*/
+    padding: 5px;
+    background-color: #F7F5F6;
+    margin-bottom: 10px;
+
+}
+
+.card>img {
+    position: absolute;
+}
+
+.card {
+    position: relative;
+
+}
+
+.card>div>a>img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card>.img {
+    /*height: 400px;*/
+    position: relative;
+    overflow: hidden;
+    background-color: #F7F5F6;
+    padding: 1em;
+    /*image padding thik korle cart o thik korte hobe  */
+}
+
+.card {
+    max-width: 300px;
+    max-height: 600px;
+    padding: 5px;
+    background-color: #F7F5F6;
+    margin-bottom: 10px;
+    position: relative;
+
+}
+span>a>.fas{
+    color: #ffffff;
+}
+
+
+.cart {
+    position: relative;
+    top: -98px;
+    color: #F7F5F6;
+    font-size: 1.5em;
+    padding: .5em .5em;
+    left: -73%;
+    transition: 0.3s;
+}
+
+.cart:hover {
+    left: 0;
+    color: #fff;
+}
+
+.cart>a:hover {
+    text-decoration: none;
+    color: #FAAB9F;
+}
+
+.price{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    height: 1.5em;
+    white-space: nowrap;
+}
+
+@media screen and (max-width: 414px) {
+    .pdfto {
+
+        overflow: hidden;
+        width: 100%;
+        height: 300px;
+        background-attachment: fixed;
+        padding: 10%;
+    }
+
+    .title>h1{
+        font-size: 1.2em;
+    }
+    .pdfto > div > h2{
+        font-size: 1.5em;
+    }
+    .pdfto > div{
+        align-items: center!important;
+    }
+    .pdfto>div>a{
+        font-size: 1.2em;
+    }
+}
+
+
+img{
+    height: 20em;
+}

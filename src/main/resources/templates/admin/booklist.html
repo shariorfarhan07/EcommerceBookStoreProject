@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/app::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+
+
+
+
+    <div class="col-sm-9 col-sm-offset-3 col-lg-10 col-lg-offset-2 main">
+        <div class="row">
+            <ol class="breadcrumb">
+                <li><a href="#">
+                    <em class="fa fa-home"></em>
+                </a></li>
+                <li class="active">book list</li>
+            </ol>
+        </div><!--/.row-->
+
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">book list</h1>
+            </div>
+        </div><!--/.row-->
+
+
+
+
+
+
+
+        <div class="container">
+
+            <table class="table">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Price</th>
+                    <th scope="col">Writer</th>
+                    <th scope="col">Publisher</th>
+                    <th scope="col">Delete</th>
+                    <th scope="col">Update</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+<!--                @foreach ($books as $book)-->
+                <tr th:each="book:${books}">
+                    <th scope="row" th:text="${book.id}"></th>
+
+                    <td th:text="${book.name}"></td>
+                    <td th:text="${book.price}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.publisher}"></td>
+                    <td><a th:href="@{'/deleteBook'+${book.id}}">delete</a></td>
+                    <td><a th:href="@{'/updatebook'+${book.id}}">update</a></td>
+
+
+
+<!--                    <td><a th:href="{{deleteBook',['id'=>$book->id])}}">delete</a></td>-->
+<!--                    <td ><a th:href="{updatebook',['id'=>$book->id])}}">Update</a></td>-->3
+
+
+                </tr>
+<!--                @endforeach-->
+                </tbody>
+            </table>
+
+
+        </div>
+
+    </div>	<!--/.main-->
+
+
+
+
+
+
+
+</section>
+
+
+
+
+
+</body>
+</html>

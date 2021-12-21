@@ -1,0 +1,309 @@
+.grid{
+    width: 100%;
+    height: 300px;
+    background-size: cover;
+    background: rgb(0, 0, 0, 0.7) url('img/shop.jpg') no-repeat fixed;
+    font-family: 'Cinzel Decorative', cursive;
+}
+.grid>h1{
+    font-size: 3em;
+    text-align: center;
+    padding: 2em;
+}
+
+
+
+
+
+.card>div>a>img{
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+.card>.img{
+    max-height:400px;
+    overflow: hidden;
+    background-color: #F7F5F6;
+    padding: 10px; /*image padding thik korle cart o thik korte hobe  */
+}
+.card{
+    max-width: 300px;
+    max-height: 600px;
+    padding: 5px;
+    background-color: #F7F5F6;
+    margin-bottom: 10px;
+
+}
+.price{
+    text-align: center;
+    font-family: 'Cinzel Decorative', cursive;
+    font-weight: 800;
+}
+
+
+.title>h1{
+    font-family: 'Cinzel Decorative', cursive;
+    text-align: center;
+}
+.title{
+    padding: 100px 100px 0px 100px ;
+    align-items: center;
+}
+
+
+
+.title::after{
+    content: '';
+    display: inline-block;
+    background-image:  url('img/line.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 20%;
+    overflow: hidden;
+    width: 100%;
+    height: 50px;
+
+}
+
+.price{
+    height: 30px;
+
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.price:hover {
+    overflow: visible;
+    z-index: -1;
+}
+img{
+    height: 100%;
+
+}
+
+
+
+.curt>a:link{
+    text-decoration: none;
+    color:#FAAB9F;
+}
+
+.cart>a{
+    text-decoration: none;
+    color:#F7F5F6;
+}
+
+
+
+
+.card>img{
+    position: absolute;
+}
+
+.card{
+    position: relative;
+    width: 350px;
+}
+
+
+.cart{
+    position: relative;
+    top: -150px;
+    background-color:#282828 ;
+    color: #F7F5F6;
+    font-size: 1.5em;
+    padding:.5em .5em;
+    left: -64%;
+    transition: 0.3s;
+}
+.cart:hover{
+    left: 0;
+}
+
+.cart>a:hover{
+    text-decoration: none;
+    color:#FAAB9F;
+}
+
+container-fluid::after{
+    display: block;
+    content: '';
+    padding-bottom: 50px;
+}
+
+a{
+    color: #282828;
+    text-decoration: none;
+}
+
+
+
+/*new css*/
+
+
+/* copied from shop grid */
+
+
+
+
+.card>div>img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card>.img {
+    height: 24em;
+    overflow: hidden;
+    background-color: #F7F5F6;
+    padding: 10px;
+}
+
+.card {
+    max-width: 300px;
+    max-height: 600px;
+    padding: 5px;
+    background-color: #F7F5F6;
+    margin-bottom: 10px;
+
+}
+
+
+
+
+
+
+.card>div>a>img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card>.img {
+
+    overflow: hidden;
+    background-color: #F7F5F6;
+    padding: 10px;
+    /*image padding thik korle cart o thik korte hobe  */
+}
+
+.card {
+
+    /*max-height: 600px;*/
+    padding: 5px;
+    background-color: #F7F5F6;
+    margin-bottom: 10px;
+
+}
+
+.card>img {
+    position: absolute;
+}
+
+.card {
+    position: relative;
+
+}
+
+.card>div>a>img {
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+}
+
+.card>.img {
+    /*height: 400px;*/
+    position: relative;
+    overflow: hidden;
+    background-color: #F7F5F6;
+    padding: 1em;
+    /*image padding thik korle cart o thik korte hobe  */
+}
+
+.card {
+    max-width: 300px;
+    max-height: 600px;
+    padding: 5px;
+    background-color: #F7F5F6;
+    margin-bottom: 10px;
+    position: relative;
+
+}
+span>a>.fas{
+    color: #ffffff;
+}
+
+
+.cart {
+    position: relative;
+    top: -98px;
+    color: #F7F5F6;
+    font-size: 1.5em;
+    padding: .5em .5em;
+    left: -73%;
+    transition: 0.3s;
+}
+
+.cart:hover {
+    left: 0;
+    color: #fff;
+}
+
+.cart>a:hover {
+    text-decoration: none;
+    color: #FAAB9F;
+}
+
+.price{
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 100%;
+    height: 1.5em;
+    white-space: nowrap;
+}
+
+
+img{
+    height: 20em;
+}
+
+
+
+.curt>a:link {
+    text-decoration: none;
+}
+.cart:hover a{
+    color: #ffffff;
+}
+
+.cart>a {
+
+    position: relative;
+    top: 0px;
+    font-size: 1em;
+    color:#1a202c;
+    height: 1.2em;
+    width: .7em;
+    padding: 10px 10px;
+    text-decoration: none;
+    background-color: #282828;
+    left: 30px;
+}
+
+.curt>a:hover {
+    left: -20%;
+    text-decoration: none;
+    color: #FAAB9F;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #FAAB9F!important;
+    border-color: #FAAB9F!important;
+}
+.page-link{
+ color: #222!important;
+}
+

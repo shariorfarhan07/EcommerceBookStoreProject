@@ -1,0 +1,84 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="frontend/app::layoutt(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+    <link rel="stylesheet" href="{{asset('main/shopgrid.css')}}" />
+    <style>
+
+        .firstl{
+            text-transform: uppercase;
+            font-family: 'Cinzel Decorative', cursive;
+        }
+    </style>
+    <section>
+        <div class="grid firstl ">
+            <h1>Best Price Guaranteed</h1>
+
+        </div>
+    </section>
+
+    <section>
+
+        @if($category)
+        <div class="title">
+            <h1 class="firstl">{{$category}}</h1>
+        </div>
+        @endif
+
+        <div class="container-fluid" style="padding-top: 100px; padding-bottom: 100px">
+            <div class="row">
+
+                @foreach($products as $book)
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 col-xl-3 col-xxl-2">
+                    <div class="card">
+                        <div class="img">
+                            <a href="{{route('books',['slug'=>$book->slug])}}" >
+                                <img src="{{ asset('storage/product_images/'.$book->image)}}" alt="" />
+                            </a>
+                            <span class="cart" id="curt"><a href="{{route('add',['id'=>$book->id ])}}">Add to cart&nbsp;&nbsp;<i class="fas fa-shopping-cart"></i></a></i></span>
+                        </div>
+                        <a href="{{route('books',['slug'=>$book->slug])}}">
+                            <div class="price">{{ $book->name }}</div>
+                            <div class="price">price : {{ $book->price }}</div>
+                        </a>
+                    </div>
+                </div>
+
+                @endforeach
+
+
+            </div>
+
+
+        </div>
+
+
+    </section>
+
+
+    {{$products->links("pagination::bootstrap-4")}}
+
+
+
+
+    @endsection
+
+
+
+
+
+</section>
+
+</body>
+</html>

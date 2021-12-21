@@ -4,6 +4,23 @@
     box-sizing: border-box !important;
 }
 
+#paralex>div>p{
+    color: #0f0f0f;
+    font-weight: 900;
+    padding: 10px;
+}
+
+
+.price{
+    color: #0f0f0f;
+}
+.price:hover{
+    color: #FAAB9F;
+}
+
+
+
+
 .headercontainer {
     width: 80%;
     margin: 0 auto;
@@ -12,7 +29,7 @@
 .header {
     position: relative !important;
     width: 100%;
-    box-shadow: 1px 1px 6px 0px rgb(0 0 0 / 13%);
+    box-shadow: 1px 1px 6px 0px rgb(0 0 0/13%);
     background-color: #fafafa;
 }
 
@@ -40,7 +57,7 @@ nav {
 }
 
 .logo h1 {
-    margin: auto o;
+    margin: auto 0;
     color: #222;
     font-weight: 900;
     line-height: 1.4;
@@ -83,7 +100,7 @@ nav>div>ul>li>a:hover {
 
 body {
     font-family: 'Mulish', sans-serif;
-    font-size: 18px;
+    font-size: 15px;
 }
 
 
@@ -123,9 +140,6 @@ body {
 
 }
 
-.fb {
-    font-size: 70px;
-}
 
 
 /* first letter box */
@@ -149,17 +163,52 @@ body {
         font-size: 15px;
 
     }
+    nav>div>ul>li>a{
+        padding: 20px 10px;
+    }
+}
+@media (max-width: 1654px){
+    nav>div>ul>li>a {
+        padding: 12px 0px;
+    }
+}
+
+
+@media (max-width:1590px) {
+    nav>div>ul>li{
+        padding: 10px 10px;
+    }
 }
 
 @media (max-width:1575px) {
     .header {
-        font-size: 10px;
+        font-size: 13px;
     }
+
+    #paralex > div> p{
+        color: #ffffff;
+        background: rgba( 0, 0, 0, 0.35 );
+        box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+        backdrop-filter: blur( 20.0px );
+        -webkit-backdrop-filter: blur( 20.0px );
+        border-radius: 10px;
+        border: 1px solid rgba( 255, 255, 255, 0.18 );
+    }
+}
+
+@media (max-width:1350px) {
+    nav>div>ul>li{
+        padding: 10px 0px;
+    }
+
 }
 
 
 
 @media (max-width:1245px) {
+    .headercontainer{
+        width: 100%;
+    }
     .header {
         font-size: 12px;
     }
@@ -171,13 +220,23 @@ body {
     .logo {
         left: 0;
     }
+    #paralex{
+        font-size: 10px;
+    }
+    #paralex>div>a{
+        display: none;
+    }
+
 
     .menu {
         display: block;
         position: relative;
-        margin: 0 auto;
+        margin-top: auto;
+        margin-right: 0;
+        margin-bottom: auto;
+        margin-left: auto;
         font-size: 3.3em;
-        padding-top: 50px;
+        float: right;
     }
 
 }
@@ -253,7 +312,7 @@ body {
 }
 
 .eng {
-    width: 120%;
+    width: auto;
     height: auto;
 
 }
@@ -267,7 +326,7 @@ body {
     width: 100%;
     height: 230px;
     padding: 65px 100px;
-    background: url('../../../../../../Desktop/New folder (5)/backup nupur/nupurbooks/bg_breath_of_the_wild.jpg');
+    /*background: url('main/bg_breath_of_the_wild.jpg');*/
     background-position: center;
     background-repeat: no-repeat;
     background-size: 100%;
@@ -300,4 +359,17 @@ input[type=text]:focus {
 
 .ver {
     position: absolute;
+}
+
+.logoA:hover{
+    text-decoration: none;
+}
+.eng>div>ul>li{
+    padding:0 10px;
+}
+
+
+
+a{
+    text-decoration: none!important;
 }

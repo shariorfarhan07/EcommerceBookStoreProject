@@ -1,0 +1,232 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="frontend/app::layoutt(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous" defer></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous" defer></script>
+
+
+
+    <style>
+        .header{
+            display:none;
+        }
+        .form-group {
+            padding: 0px 0px;
+        }
+    </style>
+    @endpush
+
+    @section('content')
+
+
+
+
+    <style>
+        .tubelight >span{
+            font-family: 'Cinzel Decorative', cursive!important;
+        }
+
+
+        .btn,.custom-file{
+            margin-left: 14px;
+            margin-bottom: 10px;
+        }
+        h2{
+            margin:15px 10px 30px 10px;
+        }
+
+        .containerdesign{
+            position: relative;
+            top: -400px;
+            background: rgba( 255, 255, 255, 0.90 );
+            box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+            backdrop-filter: blur( 4px );
+            -webkit-backdrop-filter: blur( 4px );
+            border-radius: 10px;
+            border: 1px solid rgba( 255, 255, 255, 0.18 );
+        }
+        .form{
+            background-color:  black;
+        }
+
+        /* added css */
+        .tubelight{
+            display:flex;
+            justify-content:center;
+            align-items:center;
+            background-color:#000;
+            height:100vh;
+        }
+        .tubelight span{
+            position: relative;
+            top:-80px;
+            color:#fff;
+            text-transform:uppercase;
+            /*   font-family: 'Pacifico', cursive; */
+            font-family: 'Monda', sans-serif;
+            font-size:5em;
+            animation:animate 2s linear;
+            animation-iteration-count:2;
+            /*   display:table-cell; */
+            padding:0px  4px;
+            text-shadow:0px 0px 20px  #fff,
+            0px 0px 30px  #fff,
+            0px 0px 10px  #fff,
+            0px 0px 1px  #fff
+        ;
+        }
+        .tubelight span:nth-child(1){
+            animation-delay:0s;
+        }
+        .tubelight span:nth-child(2){
+            animation-delay:0.25s;
+        }
+        .tubelight span:nth-child(3){
+            animation-delay:0.5s;
+        }
+        .tubelight span:nth-child(4){
+            animation-delay:0.75s;
+        }
+        .tubelight span:nth-child(5){
+            animation-delay:0.3s;
+        }
+        .tubelight span:nth-child(6){
+            animation-delay:0.5s;
+        }
+        .tubelight span:nth-child(7){
+            animation-delay:0.6s;
+        }
+        .tubelight span:nth-child(8){
+            animation-delay:0.8s;
+        }
+        .tubelight span:nth-child(9){
+            animation-delay:1s;
+        }
+
+
+
+        @keyframes animate{
+            0%,15%,25%,30%,65%,95%{
+                color:#111;
+                text-shadow:none;
+            }
+            10%,20%,31%,60%,100%{
+                color:#fff;
+                text-shadow:0px 0px 20px  #fff,
+                0px 0px 30px  #fff,
+                0px 0px 10px  #fff,
+                0px 0px 1px  #fff
+            ;
+            }
+        }
+
+
+
+
+
+    </style>
+    <div class="tubelight">
+        <span>N</span>
+        <span>U</span>
+        <span>P</span>
+        <span>U</span>
+        <span>R</span>
+        <span>B</span>
+        <span>O</span>
+        <span>O</span>
+        <span>K</span>
+        <span>S</span>
+    </div>
+
+
+
+    <section style="" class="form">
+        <div class="container containerdesign">
+
+
+            <h2>Please upload the book you want to print we will contact you for details</h2>
+
+            <form action="{{route('mailpdf')}}" method="post" enctype="multipart/form-data">
+                @csrf
+                <div class="form-row">
+                    <div class="col-md-6">
+                        <label for="inputAddress">First Name</label>
+                        <input type="text" name="first_name" class="form-control" placeholder="First name" required>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="inputAddress">Last Name</label>
+                        <input type="text"  name="last_name" class="form-control" placeholder="Last name" required>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress">Address</label>
+                    <input type="text"  name="address" class="form-control" id="inputAddress" placeholder="1234 Main St" required>
+                </div>
+                <div class="form-group">
+                    <label for="inputAddress2">Phone</label>
+                    <input type="text" name="phone" class="form-control" id="inputAddress2" placeholder="017********" required>
+                </div>
+
+
+
+
+                <label class="w-100">Please upload pdf
+                    <div class="custom-file">
+                        <input type="file" class="custom-file-input" name="pdf" required>
+                        <label class="custom-file-label">select your pdf</label>
+                    </div>
+                </label>
+
+
+
+                <button type="submit" class="btn btn-primary">Request Book Print</button>
+                <a href="{{route('home')}}"  class="btn btn-primary">Back to home</a>
+
+            </form>
+        </div>
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</section>
+
+</body>
+</html>

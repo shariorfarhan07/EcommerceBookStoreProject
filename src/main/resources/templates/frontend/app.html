@@ -1,0 +1,863 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:fragment="layoutt(content)" >
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&family=Cinzel:wght@600&family=Mulish:wght@600&display=swap"
+        rel="stylesheet"
+    />
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    />
+    
+     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+      <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+
+<!--    @stack('css')-->
+
+    <title>Nupur Book Center-Science-Commerce-Arts-Engineering-Medical-and-pdf-to-book-conversion</title>
+     <link rel="stylesheet" th:href="@{/main/nav.css}" />
+</head>
+<body>
+<!-- search bar  -->
+
+
+<div class="search" id="searchbar"  th:style="'background: url(/main/bg_breath_of_the_wild.jpg) no-repeat center center fixed;'" >
+    <form th:action="@{/search}" method="get">
+
+        <input autocomplete="off" type="text" id="mobileSearch" name="search" >
+        <i class="fas fa-times" id="close" onclick="hidesearch()"></i>
+    </form>
+    <div class="searchitem" id="searchitem">
+
+    </div>
+</div>
+<script>
+    function displaysearch(){
+        document.getElementById("searchbar").style.top = "0px";
+    }
+    function hidesearch(){
+        document.getElementById("searchbar").style.top = "-300px";
+        $('#searchitem').fadeOut();
+    }
+</script>
+<script>
+
+    $(document).ready(function(){
+        $('#mobileSearch').keyup(function(){
+            var query = $(this).val();
+            console.log("search for the big function");
+            if(query != '')
+            {
+                var _token = $('input[name="_token"]').val();
+                $.ajax({
+                    url:"{{ route('fetchs') }}",
+                    method:"POST",
+                    data:{query:query, _token:_token},
+                    success:function(data){
+                        $('#searchitem').fadeIn();
+                        $('#searchitem').html(data);
+                    }
+                });
+            }else{
+
+                $('#searchitem').fadeOut();
+            }
+        });
+
+
+    });
+</script>
+
+
+<!--mobile nav-->
+
+
+
+
+
+  <style>
+    .searchmob >div >span{
+      padding: 2px;
+    }
+    .mobfrom>input{
+      width: 90%;
+      padding-left: 5px;
+      border-radius: 5px;
+      font-size: 25px;
+      height: 30px;
+      
+    }
+
+    .mobfrom>button{
+      width: 10%;
+      padding: 2px;
+      background:#cab7b7;
+      border-left: 5px;
+
+    }
+    .mobfrom{
+      display: flex;
+      padding: 10px 0px;
+    
+    }
+
+    .searchmob{
+      box-shadow: 1px 1px 6px 0px rgb(0 0 0 / 13%);
+      background-color:  #FAAB9F;
+    }
+    .x{
+      float: right;
+    }
+
+    .category>h2{
+      text-align: center;
+      padding-bottom: 15px;
+
+    }
+  .mobilenav > ul > li > a{
+    padding: 5px 5px;
+    background-color: #fff;
+    color: #222;
+    text-decoration: none;
+   
+  }
+  .mobilenav{
+  position:absolute;
+  z-index:3;
+  display:none;
+  background-color: #fff;
+    width:100%;
+      height:100%;
+  }
+  .mobilenav > ul > li {
+    padding: 5px 5px;
+    background-color: #fff;
+   
+  }
+
+
+  </style>
+<!--  <div class="mobilenav">-->
+<!--    <div class="searchmob">-->
+<!--      <div>-->
+<!--       <span>Menu</span> <span class="x" onclick="closeMobNav()"><i class="far fa-times-circle"></i></span>-->
+<!--      </div>-->
+<!--      <form class="mobfrom" action="{{route('search')}}" method="get">-->
+
+<!--        <input type="text" id="fname" name="search">-->
+<!--        <button type="submit" form="fname" value="Submit"><i class="fas fa-search"></i></button>-->
+<!--      </form>-->
+<!--    </div>-->
+<!--    <div class="category">-->
+<!--      <h2>Category</h2>-->
+<!--    </div>-->
+
+<!--    <ul>-->
+<!--      <li><a href="{{route('category',['category'=>'ACADEMIC'])}}">ACADEMIC</a></li>-->
+<!--      <li><a href="{{route('category',['category'=>'OLYMPIAD'])}}">OLYMPIAD</a></li>-->
+<!--      <li><a href="{{route('category',['category'=>'ENGINEERING'])}}">ENGINEERING</a></li>-->
+<!--      <li><a href="{{route('category',['category'=>'PROGRAMMING'])}}">PROGRAMMING </a></li>-->
+<!--      <li><a href="{{route('category',['category'=>'MEDICAL'])}}">MEDICAL </a></li>-->
+<!--      <li><a href="{{route('category',['category'=>'COMPETITIVE EXAM '])}}">COMPETITIVE EXAM </a></li>-->
+<!--      <li><a href="{{route('category',['category'=>'COMMER’S FACULTY'])}}">COMMER’S FACULTY</a></li>-->
+<!--      <li><a href="{{route('category',['category'=>'JOB'])}}">JOB</a></li>-->
+<!--    </ul>-->
+
+
+
+
+
+
+
+
+<!--  </div>-->
+
+  <script>
+    function closeMobNav(){
+      $('.mobilenav').hide();
+    }
+
+    function openMobNav(){
+      $('.mobilenav').show();
+    }
+
+  </script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--- nav start --->
+<header>
+    <div class="header">
+        <nav class="headercontainer">
+            <div class="left nav">
+                <ul>
+                    <li id="categorytag" class="categorytag eng"><a href="#" >Category</a>
+
+
+                        <div class="categorybig container">
+                            <div class="row bigcategory">
+
+
+                                <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div><a th:href="@{books/ENGINEERING}">ENGINEERING  </a></div>
+                                    <ul>
+                                        <li><a  th:href="@{books/CSE}">CSE</a></li>
+                                        <li><a  th:href="@{books/EEE}">EEE</a></li>
+                                        <li><a  th:href="@{books/CIVIL}">CIVIL</a></li>
+                                        <li><a  th:href="@{books/MECHANICAL}">MECHANICAL</a></li>
+                                        <li><a  th:href="@{books/TEXTILE}">TEXTILE</a></li>
+                                        <li><a  th:href="@{books/MARINE}"> MARINE</a></li>
+                                        <li><a  th:href="@{books/ARCHITECTURE}"> ARCHITECTURE </a></li>
+                                    </ul>
+
+                                </div>
+
+                                <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div>
+                                        <a  th:href="@{books/PROGRAMMING}">PROGRAMMING</a>
+                                    </div>
+                                    <ul>
+                                        <li><a  th:href="@{books/C}">C</a></li>
+                                        <li><a  th:href="@{books/C++}">C++</a></li>
+                                        <li><a  th:href="@{books/C#}">C#</a></li>
+                                        <li><a  th:href="@{books/JAVA}">JAVA</a></li>
+                                        <li><a  th:href="@{books/PHP}">PHP</a></li>
+                                        <li><a  th:href="@{books/JS}"> JS</a></li>
+                                        <li><a  th:href="@{books/Python}"> Python </a></li>
+                                        <li><a  th:href="@{books/HTML}"> HTML </a></li>
+                                        <li><a  th:href="@{books/CSS}"> CSS </a></li>
+                                        <li><a  th:href="@{books/django}"> django </a></li>
+                                    </ul>
+
+                                </div>
+
+
+
+
+
+                                <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div>
+                                        <a  th:href="@{books/COMPETITIVE EXAM}">COMPETITIVE EXAM </a>
+                                    </div>
+                                    <ul>
+                                        <li><a  th:href="@{books/IELTS}">IELTS</a></li>
+                                        <li><a  th:href="@{books/GRE}">GRE</a></li>
+                                        <li><a  th:href="@{books/SAT}">SAT</a></li>
+                                        <li><a  th:href="@{books/GMAT}">GMAT</a></li>
+                                        <li><a  th:href="@{books/CAT}"> CAT</a></li>
+                                        <li><a th:href="@{books/GED}"> GED </a></li>
+                                        <li><a  th:href="@{books/TOEFL}"> TOEFL </a></li>
+                                        <li><a  th:href="@{books/CISA}"> CISA </a></li>
+                                        <li><a  th:href="@{books/CISSP}"> CISSP </a></li>
+                                        <li><a th:href="@{books/CCNA}"> CCNA </a></li>
+                                        <li><a  th:href="@{books/CCNP}"> CCNP  </a></li>
+                                    </ul>
+
+                                </div>
+
+
+                                <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div>
+                                        <a  th:href="@{books/COMMER’S FACULTY}">COMMER’S FACULTY </a>
+                                    </div>
+                                    <ul>
+                                        <li><a  th:href="@{books/BBA}">BBA</a></li>
+                                        <li><a  th:href="@{books/MBA}">MBA</a></li>
+                                        <li><a  th:href="@{books/ACCA}">ACCA</a></li>
+                                        <li><a  th:href="@{books/FIA}">FIA</a></li>
+                                        <li><a  th:href="@{books/CFA}">CFA</a></li>
+                                        <li><a  th:href="@{books/CIMA}"> CIMA</a></li>
+                                        <li><a  th:href="@{books/GED}"> GED </a></li>
+                                        <li><a  th:href="@{books/CFA}"> CFA </a></li>
+                                        <li><a  th:href="@{books/CISA}"> CISA </a></li>
+                                        <li><a  th:href="@{books/ICMA}"> ICMA </a></li>
+                                        <li><a  th:href="@{books/PMP}"> PMP  </a></li>
+
+                                    </ul>
+
+                                </div>
+
+
+                                <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div>
+                                        <a  th:href="@{books/JOB}">JOB</a>
+                                    </div>
+                                    <ul>
+                                        <li><a  th:href="@{books/BCS}">BCS</a></li>
+                                        <li><a  th:href="@{books/BANK}">BANK</a></li>
+                                        <li><a  th:href="@{books/PSC}">PSC</a></li>
+                                        <li><a  th:href="@{books/ALL MINISTRY}"> ALL MINISTRY</a></li>
+                                        <li><a  th:href="@{books/IT}">IT</a></li>
+                                        <li><a  th:href="@{books/EEE}"> EEE</a></li>
+                                        <li><a  th:href="@{books/MECHANICAL}"> MECHANICAL </a></li>
+                                        <li><a  th:href="@{books/POWER}"> POWER </a></li>
+                                        <li><a  th:href="@{books/PRIMARY}"> PRIMARY  </a></li>
+                                        <li><a  th:href="@{books/SCHOOL}"> SCHOOL </a></li>
+                                        <li><a  th:href="@{books/NTRCA}"> NTRCA   </a></li>
+
+                                    </ul>
+
+                                </div>
+
+
+
+
+
+
+
+
+                                <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div><a  th:href="@{books/ACADEMIC}">ACADEMIC </a></div>
+                                    <ul>
+                                        <li><a  th:href="@{books/PRIMARY}">PRIMARY</a></li>
+                                        <li><a  th:href="@{books/JSC}">JSC</a></li>
+                                        <li><a  th:href="@{books/SSC}">SSC</a></li>
+                                        <li><a  th:href="@{books/HSC}">HSC</a></li>
+                                        <li><a  th:href="@{books/HONOR’S}">HONOR’S</a></li>
+                                        <li><a  th:href="@{books/O-LEVEL}"> O-LEVEL</a></li>
+                                        <li><a  th:href="@{books/A-LEVEL}"> A-LEVEL</a></li>
+                                    </ul>
+
+                                </div>
+                                <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div><a  th:href="@{books/OLYMPIAD}">OLYMPIAD </a></div>
+                                    <ul>
+                                        <li><a  th:href="@{books/PRIMARY}">PRIMARY</a></li>
+                                        <li><a  th:href="@{books/MATH}">MATH</a></li>
+                                        <li><a  th:href="@{books/PHYSICS}">PHYSICS</a></li>
+                                        <li><a  th:href="@{books/ASTRONOMY}">ASTRONOMY</a></li>
+                                        <li><a  th:href="@{books/BIOLOGY}">BIOLOGY</a></li>
+                                        <li><a  th:href="@{books/ENGLISH}">ENGLISH</a></li>
+                                        <li><a  th:href="@{books/A-LEVE}"> A-LEVEL</a></li>
+                                    </ul>
+
+                                </div>
+                         
+                         
+                         
+                         
+                         
+                         
+                                 <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div><a  th:href="@{books/Law}">Law</a></div>
+                                  </div>  
+                                   <div class="col-sm-6 col-md-2 col-lg-2">
+                                    <div><a  th:href="@{books/Motivational/Novel}">Motivational/Novel </a></div>
+                                  </div>  
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+
+
+
+                    </li>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    <li class="categorytag"><a href="#">Engineering</a>
+
+                        <div class="categorybig eng">
+                            <div><a  th:href="@{books/ENGINEERING}">ENGINEERING  </a></div>
+                            <ul>
+                                <li><a  th:href="@{books/CSE}">CSE</a></li>
+                                <li><a  th:href="@{books/EEE}">EEE</a></li>
+                                <li><a  th:href="@{books/CIVIL}">CIVIL</a></li>
+                                <li><a  th:href="@{books/MECHANICAL}">MECHANICAL</a></li>
+                                <li><a  th:href="@{books/TEXTILE}">TEXTILE</a></li>
+                                <li><a  th:href="@{books/MERINE}"> MERINE</a></li>
+                                <li><a  th:href="@{books/ARCHITECTURE}"> ARCHITECTURE </a></li>
+                            </ul>
+
+                        </div>
+
+
+                    </li>
+                    <li class="categorytag"><a  th:href="@{books/MEDICAl}">Medical</a>
+
+                        <div class="categorybig eng">
+                            <div>
+                                <a  th:href="@{books/MEDICAL}">MEDICAL</a>
+                            </div>
+                            <ul>
+                                <li><a  th:href="@{books/NURSING}">NURSING</a></li>
+                                <li><a  th:href="@{books/DENTA}">DENTA</a></li>
+                                <li><a  th:href="@{books/USML}">USML</a></li>
+                            </ul>
+
+                        </div>
+
+
+                    </li>
+                </ul>
+            </div>
+
+            <a class="logoA" th:href="@{/}">
+                <div class="logo">
+                    <h1 class="firstl"><span>N</span>UPUR BooK CENTER</h1>
+                </div>
+            </a>
+
+
+
+            <div class="right nav">
+                <ul>
+                    <li class="categorytag"><a href="#">Olympiad&nbsp;<span><i class="fas fa-arrow-down"></i></span></a>
+                        <div class="categorybig eng">
+                            <div><a  th:href="@{books/OLYMPIAD}">OLYMPIAD </a></div>
+                            <ul>
+                                <li><a  th:href="@{books/PRIMARY}">PRIMARY</a></li>
+                                <li><a  th:href="@{books/MATH}">MATH</a></li>
+                                <li><a  th:href="@{books/PHYSICS}">PHYSICS</a></li>
+                                <li><a  th:href="@{books/ASTRONOMY}">ASTRONOMY</a></li>
+                                <li><a  th:href="@{books/BIOLOGY}">BIOLOGY</a></li>
+                                <li><a  th:href="@{books/ENGLISH}">ENGLISH</a></li>
+                                <li><a  th:href="@{books/A-LEVEL}"> A-LEVEL</a></li>
+                            </ul>
+
+                        </div>
+
+
+                    </li>
+                    <li><a href="#" onclick="displaysearch()">Search&nbsp;<i class="fas fa-search" ></i></a></li>
+                    <li><a href="{{route('cart')}}">Cart
+                            @if($cartforall!=null)
+                            <sup class="itemnumber">{{$cartforall->totalQuantity}}</sup>
+                            @endif
+                            <span><i class="fas fa-cart-arrow-down"></span></i></a>
+
+
+                    </li>
+
+                </ul>
+            </div>
+            <div class="menu" onclick="openMobNav()">
+                <i class="fas fa-bars"></i>
+
+
+        </nav>
+    </div>
+</header>
+<!---nav end --->
+
+
+<script>
+function closealert(){
+ $('.alert').hide();
+console.log(12345);
+}
+</script>
+
+
+
+<!--@if ($message = Session::get('success'))-->
+<!--<div class="alert alert-success alert-block">-->
+<!--    <span class="close" data-dismiss="alert" onclick="closealert()">×</span>-->
+<!--    <strong>{{ $message }}</strong>-->
+<!--</div>-->
+<!--@endif-->
+
+
+<!--@if ($message = Session::get('error'))-->
+<!--<div class="alert alert-danger alert-block">-->
+<!--     <span class="close" data-dismiss="alert" onclick="closealert()">×</span>-->
+<!--    <strong>{{ $message }}</strong>-->
+<!--</div>-->
+<!--@endif-->
+
+
+<!--@if ($message = Session::get('warning'))-->
+<!--<div class="alert alert-warning alert-block">-->
+<!--     <span class="close" data-dismiss="alert" onclick="closealert()">×</span>-->
+<!--    <strong>{{ $message }}</strong>-->
+<!--</div>-->
+<!--@endif-->
+
+
+<!--@if ($message = Session::get('info'))-->
+<!--<div class="alert alert-info alert-block">-->
+<!--     <span class="close" data-dismiss="alert" onclick="closealert()">×</span>-->
+<!--    <strong>{{ $message }}</strong>-->
+<!--</div>-->
+<!--@endif-->
+
+
+<!--@if ($errors->any())-->
+<!--<div class="alert alert-danger">-->
+<!--    <span class="close" data-dismiss="alert" onclick="closealert()">×</span>-->
+<!--    Please check the form below for errors-->
+<!--</div>-->
+<!--@endif-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section th:replace="${content}">
+
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+<style>
+
+    a{
+        color: #ffffff;
+    }
+     a:hover{
+        color: #FAAB9F;;
+    }
+</style>
+    <div class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 address" >
+                    <h2> CONTACT US</h2>
+                    <address>BOOKCASTLE, BRAC UNIVERSITY 65 mohakhali, Dhaka -1205.</address>
+                    <a href="tel:+880180000000">Call me at <br> 0180000000 <i class="fab fa-whatsapp"></i>,</a>
+                    <a href="tel:+017000000000">0174000000,</a>
+                    <a href="tel:+019100000000">0190000000.</a>
+                    <a href="mailto:nupurbookcenter@gmail.com"> bookcastle@gmail.com</a>.<br>
+                    
+                     <a href="https://www.facebook.com/Nupur-Book-Center-935891179902041"> <i class="fab fa-facebook-square fb"></i> Facebook Page  </a>
+
+                </div>
+
+                <div class="col-md-4">
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3652.4023498678603!2d90.38327451530934!3d23.73302748459796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3755b8c5dffa1727%3A0x538be2859437441b!2sNupur%20Book%20Center!5e0!3m2!1sen!2sbd!4v1621972109634!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                </div>
+
+                <div class="col-md-4">
+                  <h2>About delivery  & charges</h2>
+        
+        <ul>
+          <li> Within Dhaka city: 2~3 days.</li>
+         
+          <li>Inside Bangladesh: 3~5 days.</li>
+          <li>60Tk within the Dhaka city(minimum)*.</li>
+          <li>100Tk  all over Bangladesh(minimum)*.</li>
+          <li>Delivery charge is based on parcels weight.</li>
+          <li>After placing order delivery charge will be calculated and you will get a call to confirm it.</li>
+        </ul>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+</footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   <style>
+ 
+.cartmob{
+	position: fixed;
+    font-size: 30px;
+    color: #fff;
+    top: 50%;
+    right: 0px;
+    background: rgba( 0, 0, 0, 0.40 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 8.5px );
+    -webkit-backdrop-filter: blur( 8.5px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    padding: 5px;
+}
+.bottom {
+   text-align: center;
+   background-color:#282828;    
+   color:#fff;
+   margin:0;
+   padding0;
+}
+.bottom a{
+    color: #FAAB9F;
+    text-decoration: none;
+}
+.bottom p {
+   margin-top: 0; 
+     margin-bottom: 0; 
+}
+    </style>
+    <a href="{{route('cart')}}">
+        <span class="cartmob">
+            <i class="fas fa-shopping-cart"></i>
+             @if($cartforall!=null)
+            <sup class="itemnumber">{{$cartforall->totalQuantity}}</sup>
+            @endif
+        </span>
+    </a>
+
+
+
+    <div class="bottom">
+        <p class="copyright">&copy; All rights reserved to <a href="\about"> NupurBookCenter</a>.This website is owned by <a href="https://www.facebook.com/ismayeel.hossain.773">Ismayeel Hossain
+        </a> & developed by  <a href="https://www.facebook.com/PrototypeBangladesh">prototypeBD</a>. 
+    </p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+></script>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+<script src="{{asset('bootstrap.bundle.min.js')}}"></script>
+
+
+
+
+<script src="{{asset('main/index.js')}}"></script>
+</html>
+
+
+
+
+
+
+
+
+

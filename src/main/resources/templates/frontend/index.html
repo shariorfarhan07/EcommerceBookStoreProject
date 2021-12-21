@@ -1,0 +1,283 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="frontend/app::layoutt(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+
+    <link rel="stylesheet" th:href="@{main/style.css}" />
+
+    <!---ad start--->
+    <section>
+        <div class="ad" id="paralex">
+            <div class="firstadd">
+                <h2 class="firstl">Nupur book center</h2>
+                <p>Science . Commerce . Arts . Engineering . Medical</p>
+                <p id="textchange">
+                    Nupur book center brings you the best sellers to all the academic
+                    books in your hand on a click.
+                </p>
+
+                <p id="textchange1" style="display: none;">
+                    পিডিএফ থেকে বই কপি করে দেয়া হয়,অনলাইনে অর্ডার নেয়া হয়,কুরিয়ার এ বই পাঠানো হয়, ঘরে বসে বই পেতে যোগাযোগ করুন 01816876637, 01748280196.
+                </p>
+                <a href="#book" style="z-index:2;">Buy Books</a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        var a=document.getElementById("textchange");
+        var b=document.getElementById("textchange1");
+        var count=0
+        //setTimeout(()=>{a.style.display='none';b.style.display='block' }, 5000);
+
+        setInterval(()=>{
+            if(count%2==0){a.style.display='none'; a.style.transition='2s';b.style.display='block';}else{b.style.display='none';b.style.transition='2s';a.style.display='block';}
+            count++;
+            if(count==100){c=0;}
+        }, 5000);
+
+
+    </script>
+    <style>
+        .card{
+            margin: 5px;
+        }
+        .firstl{
+            text-transform: uppercase;
+            font-family: 'Cinzel Decorative', cursive;
+        }
+
+
+        .cart {
+            position: relative;
+            top: -98px;
+            color: #F7F5F6;
+            font-size: 1.5em;
+            padding: 0.465em .5em;
+            left: -73%;
+            transition: 0.3s;
+            background-color: #222;
+        }
+
+
+
+
+
+    </style>
+
+    <!--add end -->
+
+
+
+    <!---Books Container start--->
+    <div th:if="${#lists.size(products2)>0}" >
+    <!---Books Container --->
+    <div class="title" >
+        <h1 class="firstl">BEST SELLER</h1>
+    </div>
+    <div class="container-fluid" id="book">
+        <div class="row" >
+
+            <div class="col-md-4 	col-sm-12 col-lg-2	col-xl-2" th:each="book:${products1}" >
+                <div class="card">
+                    <div class="img">
+                        <a th:href="@{'bookname/'+${book.id}}" >
+                            <img th:src="@{'/image/'+${book.id}}" alt="" />
+                        </a>
+                        <span class="cart" id="curt"><a th:href="@{'addtocart/'+${book.id}}">Add to cart&nbsp;&nbsp;<i class="fas fa-shopping-cart"></i></a></i></span>
+                    </div>
+                    <a href="@{'bookname/'+${book.id}}">
+                        <div class="price" th:text="${book.name}"></div>
+                        <div class="price"th:text="${book.price}"></div>
+                    </a>
+                </div>
+            </div>
+
+
+
+
+        </div>
+
+    </div>
+    <div class="seemore">
+
+        <a href="@{books/best-seller}">
+        <h2  class="firstl">See More</h2>
+        </a>
+
+    </div>
+
+    </div>
+    <!---Books Container end --->
+
+
+
+
+
+    <!---Books Container start--->
+    <div th:if="${#lists.size(products2)>0}" >
+        <!---Books Container --->
+        <div class="title" >
+            <h1 class="firstl">Programing</h1>
+        </div>
+        <div class="container-fluid" id="book">
+            <div class="row" >
+
+                <div class="col-md-4 	col-sm-12 col-lg-2	col-xl-2" th:each="book:${products1}" >
+                    <div class="card">
+                        <div class="img">
+                            <a th:href="@{'bookname/'+${book.id}}" >
+                                <img th:src="@{'/image/'+${book.id}}" alt="" />
+                            </a>
+                            <span class="cart" id="curt"><a th:href="@{'addtocart/'+${book.id}}">Add to cart&nbsp;&nbsp;<i class="fas fa-shopping-cart"></i></a></i></span>
+                        </div>
+                        <a href="@{'bookname/'+${book.id}}">
+                            <div class="price" th:text="${book.name}"></div>
+                            <div class="price"th:text="${book.price}"></div>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+        <div class="seemore">
+
+            <a href="@{books/Programing}">
+                <h2  class="firstl">See More</h2>
+            </a>
+
+        </div>
+
+    </div>
+    <!---Books Container end --->
+
+
+
+
+
+
+
+    <!---Books Container start--->
+    <div th:if="${#lists.size(products2)>0}" >
+        <!---Books Container --->
+        <div class="title" >
+            <h1 class="firstl">Academic</h1>
+        </div>
+        <div class="container-fluid" id="book">
+            <div class="row" >
+
+                <div class="col-md-4 	col-sm-12 col-lg-2	col-xl-2" th:each="book:${products1}" >
+                    <div class="card">
+                        <div class="img">
+                            <a th:href="@{'bookname/'+${book.id}}" >
+                                <img th:src="@{'/image/'+${book.id}}" alt="" />
+                            </a>
+                            <span class="cart" id="curt"><a th:href="@{'addtocart/'+${book.id}}">Add to cart&nbsp;&nbsp;<i class="fas fa-shopping-cart"></i></a></i></span>
+                        </div>
+                        <a href="@{'bookname/'+${book.id}}">
+                            <div class="price" th:text="${book.name}"></div>
+                            <div class="price"th:text="${book.price}"></div>
+                        </a>
+                    </div>
+                </div>
+
+
+
+
+            </div>
+
+        </div>
+        <div class="seemore">
+
+            <a href="@{books/Academic}">
+                <h2  class="firstl">See More</h2>
+            </a>
+
+        </div>
+
+    </div>
+    <!---Books Container end --->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <div class="pdf" id="pdf">
+        <div class="quote">
+            <h2>“If you don’t like to read, you haven’t found the right book.” ― J.K Rowling </h2>
+        </div>
+    </div>
+
+
+    <div class="pdfto" style="background-image: url( {{ url('main/img/pdftobooks.jpg')}}")>
+        <div>
+            <h2>We have on demand PDF to Book printing service</h2>
+            <a href="{{route('pdf')}}" >Print PDF</a>
+        </div>
+    </div>
+</body>
+
+
+
+<div class="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                <i class="fas fa-headset icon"></i>
+                <p>24/7 available call us!<br>
+                    hotline:01748280196</p>
+            </div>
+
+            <div class="col-md-4 ">
+                <i class="fas fa-truck icon"></i>
+                <p>Fast delivey service!</p>
+            </div>
+
+
+            <div class="col-md-4">
+                <i class="fas fa-file-pdf icon"></i>
+                <p>we make books from pdf!<br>
+                    hotline:0180000000</p>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+
+
+</section>
+
+</body>
+</html>

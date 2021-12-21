@@ -1,0 +1,185 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="frontend/app::layoutt(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+    <!-- start title -->
+    <div class="title" style="position: relative;left: 45%;margin: 50px">
+        <h1 class="firstl">Enter Details</h1>
+    </div>
+    <!-- end title -->
+
+
+
+    <section class="container">
+
+
+        <form action="{{route('sendorder')}}" method="post"  enctype="multipart/form-data">
+            {{csrf_field()}}
+            <h2>Billing details</h2>
+            <p>Enter your details to the form below to process your order.</p>
+            <div class="row">
+                <div class="form-group col-md-6 ">
+                    <label for="inputPassword4">First-Name:</label>
+                    <strong><sup>*</sup></strong><input type="text"  name="first_name" id="first-name" class="form-control" placeholder="First name" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Last-Name:</label> <strong><sup>*</sup></strong>
+                    <input type="text"   name="last_name" id="lastname"class="form-control" placeholder="Last name" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Phone:</label> <strong><sup>*</sup></strong>
+                    <input type="text"  name="phone" id="phone" class="form-control" placeholder="017XXXXXXXX" required>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword4">Email:</label> <strong><sup>*</sup></strong>
+                    <input type="text" name="email" id="email" class="form-control" placeholder="Email" required>
+                </div>
+            </div>
+            Country:<strong>Bangladesh</strong> <strong><sup>*</sup></strong>
+
+            <div class="form-group">
+                <label for="inputAddress">Address</label> <strong><sup>*</sup></strong>
+                <input type="text" name="address" class="form-control" id="inputAddress" placeholder="House number and street name" required>
+            </div>
+            <div class="form-group">
+                <input type="text" name="flat"  class="form-control" id="inputAddress" placeholder="Apartment, suite, unit, etc. (optional)">
+            </div>
+
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label> <strong><sup>*</sup></strong>
+                    <input type="text" class="form-control" id="inputCity" name="city" required>
+                </div>
+
+                <div class="col-md-2 col-sm-2 col-xl-2">
+                    <label for="inputZip">Zip</label> <strong><sup>*</sup></strong>
+                    <input type="text" class="form-control" id="inputZip" name="zip" id="zip" required>
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputState">Division</label> <strong><sup>*</sup></strong>
+                    <select id="inputState" class="form-control"  name="division">
+                        <option selected>Dhaka</option>
+                        <option>Khulna</option>
+                        <option>Mymensingh</option>
+                        <option>Rajshahi </option>
+                        <option >Barisal</option>
+                        <option>Rangpur </option>
+                        <option>Chittagong</option>
+                    </select>
+                </div>
+            </div>
+
+
+
+
+
+
+            <div class="row" style="padding-top:30px;">
+                <div class="form-group col-md-4">
+                    <h2>Billing details</h2>
+                    <ul>
+                        <li>
+                            <input type="radio"  id="huey" name="paymentmethod" value="Bkash" checked>
+                            <label class="font1" for="huey">Bkash 01748280196</label>
+                            <br>
+                        </li>
+                        <li>
+                            <input type="radio"  id="huey" name="paymentmethod" value="Nogod" checked>
+                            <label class="font1" for="huey">Nogod 01816876637</label>
+                        </li>
+                        <br>
+                        <label for="formGroupExampleInput">Enter your Bkash/Nogod Number</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="paymentnumber" placeholder="017XXXXXXXX">
+                        <label for="formGroupExampleInput">Enter your Bkash/Nogod Transaction ID</label>
+                        <input type="text" class="form-control" id="formGroupExampleInput" name="txid" placeholder="f5df4g9h8ryt9g6">
+
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-4 redfont">
+                    <div>Note.</div>
+                    <div class="">আপনার অবগতির জন্য জানানো যাচ্ছে যে, কোন অর্ডার কনফার্ম করতে চাইলে বিকাশে / নগদে কিছু টাকা এডভান্স দিতে  হবে।কত টাকা আগে বিকাশে দিতে হবে, সেটা আগে আলোচনা করে নিবেন। সুন্দরবন কুরিয়ার এ নিতে চাইলে ক্যাশঅন ডেলভারি হবে না। সম্পূর্ণ টাকা প্রিপেইড করতে হবে। Redx delivery কুরিয়ারে ক্যাশঅন ডেলিভারি হবে।
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+
+                    <div class="cart_totals container paddingbkash payposition">
+                        <h2>Cart Totals</h2>
+                        <table>
+                            <tbody>
+                            <tr class="cart-subtotal">
+                                <th><h4>Subtotal(Without delivery charge)</h4></th>
+                                <br>
+                                <td><span class="amount"><h4>৳{{ $cartforall->totalPrice  }}</h4></span></td>
+
+                            </tr>
+
+                            <tr class="cart-subtotal">
+
+                                <td>   <button type="submit" class="confirmbutton btn btn-primary" style="background-color: #FAAB9F;">confirm your order</button></td>
+
+                            </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+
+
+
+        </form>
+
+
+
+
+
+
+
+
+    </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @endsection
+
+
+
+</section>
+
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!doctype html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="frontend/app::layoutt(~{::section})">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+
+    @extends('main.app')
+
+    @push('css')
+    <link rel="stylesheet" href="{{asset('main/book.css')}}" />
+    <meta name="keywords" content="Buy book,buy book in bd,bd,bangladseh,online bookshop bangladesh,{{$book->slug}}, {{$book->name}}, {{$book->author}},{{$book->category}}">
+    <meta name="author" content="{{$book->author}}">
+
+
+    @endpush
+    @section('content')
+    <style>
+        h2{
+            font-family:'Cinzel Decorative', cursive!important;
+        }
+    </style>
+    <section>
+        <div class="bookview">
+            <div class="container">
+                <div class="row">
+                    <div class="cat col-md-6">
+
+
+                        <div class="card bounce-4">
+                            <div class="img">
+                                <img src="{{ asset('storage/product_images/'.$book->image)}}" alt="{{$book->image}}" />
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+                    <div class="cat col-md-6">
+                        <div class="card details" >
+                            <h2>{{$book->name}}</h2>
+                            <h2>Author:{{$book->author}}</h2>
+                            <h2>Publication:{{$book->publisher}}</h2>
+                            <h2>price:{{$book->price}} taka</h2>
+
+
+
+                            <div class="bybook">
+                                <a href="{{route('add',['id'=>$book->id ])}}">Buy BOOk</a>
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @endsection
+
+
+
+</section>
+
+</body>
+</html>
