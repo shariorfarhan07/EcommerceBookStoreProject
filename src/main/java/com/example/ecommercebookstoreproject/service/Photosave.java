@@ -6,23 +6,25 @@ import java.io.IOException;
 import java.nio.file.*;
 import java.util.Date;
 
-public class photosave {
-    public static String uploadDirectory=System.getProperty("user.dir")+"/uploads";
+public class Photosave {
+    public static String uploadDirectory=System.getProperty("user.dir")+"\\src\\main\\resources\\static\\image";
 
-    public boolean imageSave(MultipartFile file) throws IOException {
+    public static String imageSave(MultipartFile file) throws IOException {
        // StringBuilder fileNames=new StringBuilder();
         Date date=new Date();
+        String ext=getExtension(file.getOriginalFilename());
         String dateString= date.toString().replace(" ","").replace(":","");
-        System.out.println(file.getOriginalFilename());
-        String filename=file.getOriginalFilename().replace(" ","")+dateString;
+      //  System.out.println(file.getOriginalFilename());
+        String filename=file.getOriginalFilename().replace(" ","")+dateString+"."+ext;
+
         Path fileNameAndpath= Paths.get(uploadDirectory,filename);
         Files.write(fileNameAndpath,file.getBytes());
-        return true;
+        return filename;
     }
 
-    public boolean imageDelete(String file){
+    public static boolean imageDelete(String file){
 
-        Path path = Paths.get("./uploads/"+file);
+        Path path = Paths.get(uploadDirectory+file);
         try {
             // Delete file or directory
             Files.delete(path);
@@ -36,6 +38,12 @@ public class photosave {
         }
 
         return  true;
+    }
+    public static String getExtension(String name){
+    String ext="";
+    int startind=name.lastIndexOf(".");
+    ext=name.substring(startind+1);
+    return ext;
     }
 
 

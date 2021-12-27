@@ -17,6 +17,14 @@ public class cart {
 
     private  cart(){}
 
+    public Map<Integer, Object[]> getItems() {
+        return items;
+    }
+
+    public void setItems(Map<Integer, Object[]> items) {
+        this.items = items;
+    }
+
     @Override
     public String toString() {
         return "cart{" +
@@ -37,6 +45,7 @@ public class cart {
             items=new HashMap<Integer, Object[]>();
         }
         System.out.println(this);
+        System.out.println(System.getProperty("user.dir"));
     }
 
     private Object[] value(int qty,double price,Book book ){

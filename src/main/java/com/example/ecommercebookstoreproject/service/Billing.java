@@ -1,9 +1,10 @@
 package com.example.ecommercebookstoreproject.service;
 
 
-import com.example.ecommercebookstoreproject.dao.Bookdao;
 import com.example.ecommercebookstoreproject.dao.Ordersdao;
 import com.example.ecommercebookstoreproject.model.Orders;
+
+import javax.servlet.http.HttpServletRequest;
 
 public class Billing  {
     private Ordersdao order;
@@ -23,13 +24,12 @@ public class Billing  {
     private String zip;
     private double price;
 
-    public  boolean createOrder(){
+    public  Orders createOrder(HttpServletRequest request ){
         Orders odr=new Orders(id,first_name, last_name,phone,address,
                 payment,paymentmethod,txid,submit,
                 date,status,division,city,zip,price);
         order.save(odr);
-        System.out.println(odr.getId());
-    return true;
+    return odr;
     }
 
 

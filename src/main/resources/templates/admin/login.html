@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="admin/app::layout(~{::section})">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+
+<section>
+    <form action="/loginid">
+        <div class="input-group mb-3">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-user"></i></span>
+            </div>
+            <input type="text" name="" class="form-control input_user" value="" placeholder="username">
+        </div>
+        <div class="input-group mb-2">
+            <div class="input-group-append">
+                <span class="input-group-text"><i class="fas fa-key"></i></span>
+            </div>
+            <input type="password" name="" class="form-control input_pass" value="" placeholder="password">
+        </div>
+        <div class="form-group">
+            <div class="custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customControlInline">
+                <label class="custom-control-label" for="customControlInline">Remember me</label>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center mt-3 login_container">
+            <button type="button" name="button" class="btn login_btn">Login</button>
+        </div>
+    </form>
+
+
+
+</section>
+
+
+
+
+
+</body>
+</html>

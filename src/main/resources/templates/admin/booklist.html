@@ -62,8 +62,8 @@
                     <td th:text="${book.price}"></td>
                     <td th:text="${book.author}"></td>
                     <td th:text="${book.publisher}"></td>
-                    <td><a th:href="@{'/deleteBook'+${book.id}}">delete</a></td>
-                    <td><a th:href="@{'/updatebook'+${book.id}}">update</a></td>
+                    <td><a th:href="@{'/deleteBook/'+${book.id}}">delete</a></td>
+                    <td><a th:href="@{'/updatebook/'+${book.id}}">update</a></td>
 
 
 

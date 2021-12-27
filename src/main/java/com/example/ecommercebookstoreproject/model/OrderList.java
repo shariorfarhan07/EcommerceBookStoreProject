@@ -13,9 +13,24 @@ public class OrderList {
     private int id;
     private int order_id;
     private int item_id;
-    private int item_name;
-    private int item_price;
+    private String item_name;
+    private double item_price;
     private int qty;
+
+    public OrderList(){
+
+    }
+
+    public OrderList(int id,Object []obj,Book book) {
+
+        this.order_id = id;
+        this.item_id = book.getId();
+        this.item_name = book.getName();
+        this.item_price = book.getPrice();
+        this.qty = (int) obj[0];
+    }
+
+
 
     @Override
     public String toString() {
@@ -53,15 +68,15 @@ public class OrderList {
         this.item_id = item_id;
     }
 
-    public int getItem_name() {
+    public String getItem_name() {
         return item_name;
     }
 
-    public void setItem_name(int item_name) {
+    public void setItem_name(String item_name) {
         this.item_name = item_name;
     }
 
-    public int getItem_price() {
+    public double getItem_price() {
         return item_price;
     }
 

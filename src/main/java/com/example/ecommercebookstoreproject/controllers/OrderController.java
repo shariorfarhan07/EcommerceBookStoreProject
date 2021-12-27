@@ -14,9 +14,6 @@ import javax.servlet.http.HttpSession;
 public class OrderController {
     @Autowired
     private  Bookdao bookdao;
-    //    Route::get('addtocart/{id}',['uses'=>$book."AddToCartProduct",'as'=>'add']);
-//    Route::get('product/{id}/{number}',['uses'=> $book.'adjustcart','as'=>'adjustCart']);
-//    Route::get('removefromcart/{id}/{number}',['uses'=>$book."adjustcart",'as'=>'remove']);
 
     @GetMapping("addtocart/{id}")
     public String addToCart(@PathVariable("id") int id, HttpServletRequest request){
@@ -30,7 +27,7 @@ public class OrderController {
         String referer = request.getHeader("Referer");
         return "redirect:"+ referer;
     }
-      @GetMapping("roduct/{id}/{number}")
+      @GetMapping("product/{id}/{number}")
     public String adjustCart(@PathVariable("id") int id,@PathVariable("number") int number, HttpServletRequest request){
           HttpSession cartSession=request.getSession();
           cart cartbox=new cart((cart) cartSession.getAttribute("cart"));
